@@ -7,3 +7,46 @@
 th {
   text-align: left;
 }
+
+.nav_bar {
+  margin: 0 auto;
+  background-color: black;
+  line-height: 4em;
+}
+
+.nav_bar a {
+  text-decoration: none;
+  color: white;
+  padding-left: 2em;
+  padding-right: 2em;
+  text-align: center;
+}
+
+.nav_bar a#active {
+  color: #E9003A;
+}
+
+.nav_bar a:hover{
+  color: #FFDE73;
+}
+
+/*.nav_bar a:hover:before{
+  content: "<";
+}
+
+.nav_bar a:hover:after{
+  content: ">";
+}*/
+
+#logo {
+  font-size: 20pt;
+  color: white;
+}
+
+#logo_red {
+  color: #E9003A;
+}
+
+* {
+  border: 1px solid blue;
+}
