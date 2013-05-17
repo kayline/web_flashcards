@@ -22,3 +22,7 @@ post '/create_account' do
     erb :login
   end
 end
+
+get '/my_profile' do
+   erb :profile
+end
