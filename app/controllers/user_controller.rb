@@ -8,6 +8,7 @@ post '/login' do
   if @user 
     session[:id]= @user.id
     @user
+    redirect '/my_profile'
   else 
     erb :login
   end

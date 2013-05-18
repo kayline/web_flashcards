@@ -1,3 +1,15 @@
+require 'faker'
+
+20.times do 
+  User.create(:name => Faker::Name.name, :email => Faker::Internet.free_email, :password => 'password')
+end
+
+
+40.times do
+  rand = 1 + rand(21)
+  Round.create(correct: rand, incorrect: rand, unanswered: rand, deck_id: rand, user_id: rand) 
+end
+
 module DeckSeeder
 
   def initialize
@@ -15,6 +27,7 @@ module DeckSeeder
     end
   end
 
+  
 end
 
 DeckSeeder::deck_seed
