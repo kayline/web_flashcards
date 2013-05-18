@@ -1,8 +1,11 @@
 <div class='nav_bar'>
  <p>
   <a href='/' id="logo"><strong id='logo_red'>Flashy</strong>Flash</a>
-  <a href='go to new game'>New Game</a>
-  <a href='go to profile' id="active">Profile</a>
-  <a href='logs the user out'>Log Out</a>
+  
+  <% if logged_in? %>
+    <a href='/game'>New Game</a>
+    <a href='/my_profile' id="active">Profile</a>
+    <a href='logs the user out'>Log Out</a>
+  <% end %>
 </p>
 </div>

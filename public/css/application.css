@@ -1,6 +1,9 @@
+body {
+  background-image: url("../background.png");
+}
 .container {
   margin: 20px auto;
-  width: 600px;
+  width: 700px;
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
 }
@@ -52,6 +55,6 @@ th {
   color: #E9003A;
 }
 
-* {
+/** {
   border: 1px solid blue;
-}
+}*/
