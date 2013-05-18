@@ -4,13 +4,22 @@ git check
   <p>You have played <%= current_user.rounds.count %> rounds (need to add average correct or some toher stat here) </p>
 
   <h5>History of Completed Rounds:</h5>
-      <% if current_user.rounds.length > 1 %>
+      <% if current_user.rounds.length > 0 %>
         <% current_user.rounds.each do |round| %>
-          <p> <%= Deck.find(round.deck_id).name%> (need to add % correct and % incorrect) </p>
+          <% @deck = Deck.find(round.deck_id) %>
+          <% @percent_correct = round.correct.to_f/ @deck.cards.length * 100%>
+          <% @percent_incorrect = round.incorrect.to_f / @deck.cards.length * 100%>
+          <% @percent_unanswered = round.unanswered.to_f / @deck.cards.length * 100%>
+          <p><%= @deck.name%>, Round <%= round.id %></p>
+          <ul> 
+            <li>Percent correct: <%= @percent_correct.to_i %>%</li>
+            <li>Percent incorrect: <%= @percent_incorrect.to_i %>%</li>
+            <li>Percent unanswered: <%= @percent_unanswered.to_i %>%</li>
+          </ul>
         <% end %>
       <% else %>
         <p>You haven't played any games!</p>
-         link to decks
+         <a href="/game">Start a new game</a>
       <% end %>
 
 </div>
