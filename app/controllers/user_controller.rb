@@ -39,5 +39,5 @@ end
 get '/logout' do
   session.clear
 
-  erb :index
+  redirect '/'
 end
