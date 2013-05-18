@@ -15,19 +15,16 @@ post '/game/:round_id' do
   @round.update_attributes(:unanswered => @remaining_cards_count)
 
   if @remaining_card_ids.empty?
-    puts "no more cards"
     redirect '/game/round_complete'
   else
     @active_card = Card.find(@remaining_card_ids.pop)
     @remaining_card_ids = @remaining_card_ids.join(",")
     if params[:guess] == @answer
-      puts "Got it right!"
       new_count = @round.correct + 1
       @round.update_attributes(:correct => new_count)
     else
       new_count = @round.incorrect + 1
       @round.update_attributes(:incorrect => new_count)
-      puts "Wrong!"
     end
     erb :play
   end
