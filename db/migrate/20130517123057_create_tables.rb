@@ -20,7 +20,7 @@ class CreateTables < ActiveRecord::Migration
     end
 
     create_table :rounds do |t|
-      t.integer :correct, :incorrect, :unanswered
+      t.integer :correct, :incorrect, :unanswered, :default => 0
 
       t.references :deck, :user
       t.timestamps

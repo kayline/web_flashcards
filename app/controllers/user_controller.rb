@@ -19,6 +19,7 @@ post '/create_account' do
   if @user.save
     session[:id]= @user.id
     @user
+    redirect '/my_profile'
   else 
     erb :login
   end
