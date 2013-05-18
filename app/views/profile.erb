@@ -1,16 +1,32 @@
 
 <div>
   <h4>Hello, <%= current_user.name %></h4>
-  <p>You have played <%= current_user.rounds.count %> rounds (need to add average correct or some toher stat here) </p>
+  <p>You have played <%= current_user.rounds.count %> rounds</p>
+  <% @total_correct = current_user.rounds.map {|round| round.correct}.inject(:+).to_f %>
+  <% @total_incorrect = current_user.rounds.map {|round| round.incorrect}.inject(:+).to_f %>
+  <% @total_answered = @total_correct + @total_incorrect %>
+    <ul>
+      <li>Overall Percent Correct: <%= (@total_correct / @total_answered * 100).to_i %>%</li>
+      <li>Overall Percent Incorrect: <%= (@total_incorrect / @total_answered * 100).to_i %>%</li>
+    </ul>
 
   <h5>History of Completed Rounds:</h5>
-      <% if current_user.rounds.length > 1 %>
+      <% if current_user.rounds.length > 0 %>
         <% current_user.rounds.each do |round| %>
-          <p> <%= Deck.find(round.deck_id).name%> (need to add % correct and % incorrect) </p>
+          <% @deck = Deck.find(round.deck_id) %>
+          <% @percent_correct = round.correct.to_f/ @deck.cards.length * 100%>
+          <% @percent_incorrect = round.incorrect.to_f / @deck.cards.length * 100%>
+          <% @percent_unanswered = round.unanswered.to_f / @deck.cards.length * 100%>
+          <p><%= @deck.name%>, Round <%= round.id %></p>
+          <ul> 
+            <li>Percent correct: <%= @percent_correct.to_i %>%</li>
+            <li>Percent incorrect: <%= @percent_incorrect.to_i %>%</li>
+            <li>Percent unanswered: <%= @percent_unanswered.to_i %>%</li>
+          </ul>
         <% end %>
       <% else %>
         <p>You haven't played any games!</p>
-         link to decks
+         <a href="/game">Start a new game</a>
       <% end %>
 
 </div>
