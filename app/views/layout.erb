@@ -17,19 +17,15 @@
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
-  <script src="/js/start_game.js"></script>
 
   <title></title>
 </head>
-<body class='impress-not-supported'>
-  <div class="fallback-message">
-    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
-    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
-  </div>
+<body>
+  
   <%= erb :_nav_bar %>
   <div class='container'>
   <%= yield %>
   </div>
-  <script src="js/impress.js"></script>
+
 </body>
 </html>

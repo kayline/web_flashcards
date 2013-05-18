@@ -1,5 +1,5 @@
 <div class='nav_bar'>
-  <a href='/' id="logo"><strong id='logo_red'>Flashy</strong>Flash</a>
+  <a href='/' id="logo"><strong id='logo_red'>Flashy</strong><% if current_user %><%= current_user.name.capitalize %><% else %>Flash<% end %></a>
 
   <ul>
   <% if logged_in? %>
