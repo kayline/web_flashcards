@@ -1,0 +1,14 @@
+
+<div class='container'>
+  
+  <h3>Question: <%=@card.question%></h3>
+
+  <form id='card_guess' action="/game/<%= @deck.id%>/<%=@round.id%>" method='post'>
+    <input type='text' name='guess' placeholder="Guess Here">
+    <input type="hidden" name="next_card_id" value="<%=@card.id + 1%>">
+    <input type="hidden" name="current_card_id" value="<%=@card.id%>">
+    <input type='submit' value='Submit Guess!'>
+  </form>
+
+
+</div>
