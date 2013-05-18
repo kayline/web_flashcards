@@ -17,12 +17,14 @@ class User < ActiveRecord::Base
 
   def self.authenticate(email, password)
     @user = User.find_by_email(email)
-    if @user.password == password
-      @user
-    else
-      @errors = User.errors.full_messages 
-    end
-  end
+    if @user
+      if @user.password == password
+        @user
+      else
+        @errors = User.errors.full_messages 
+      end
+   end
+ end
 
 
 end
