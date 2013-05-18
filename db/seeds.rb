@@ -6,8 +6,9 @@ end
 
 
 40.times do
-  rand = 1 + rand(21)
-  Round.create(correct: rand, incorrect: rand, unanswered: rand, deck_id: rand, user_id: rand) 
+  deck_ids = [1,2]
+  rand_value = 1 + rand(20)
+  Round.create(correct: rand_value, incorrect: rand_value, unanswered: rand_value, deck_id: deck_ids.sample, user_id: rand_value) 
 end
 
 module DeckSeeder
