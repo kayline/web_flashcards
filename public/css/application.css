@@ -37,28 +37,17 @@ th {
   width: 150px;
 }
 
-.nav_bar #active {
-  color: #E9003A;
-  font-weight: bold;
-}
-
-.nav_bar #active:before{
-  content: "// ";
-  color: #A0F06C;
-  font-weight: bold;
-}
-
-.nav_bar #disable:hover{
+.nav_bar ul a:hover{
   color: #FFDE73;
 }
 
-.nav_bar #disable:hover:before{
+.nav_bar ul a:hover:before{
   content: "{\00a0\00a0\00a0\00a0";
   color: #A0F06C;
   font-weight: bold;
 }
 
-.nav_bar #disable:hover:after{
+.nav_bar ul a:hover:after{
   content: "\00a0\00a0\00a0\00a0}";
   color: #A0F06C;
   font-weight: bold;

@@ -3,12 +3,12 @@
 
   <ul>
   <% if logged_in? %>
-    <li><a href='/game' id="disable">New Game</a></li>
-    <li><a href='/my_profile' id="active">Profile</a></li>
-    <li><a href='/logout' id ="disable">Log Out</a></li>
+    <li><a href='/game'>New Game</a></li>
+    <li><a href='/my_profile'>Profile</a></li>
+    <li><a href='/logout'>Log Out</a></li>
   <% else %>
-    <li><a href='/login' id="disable">Login</a></li>
-    <li><a href='/create_account' id="disable">Sign Up</a></li>
+    <li><a href='/login'>Login</a></li>
+    <li><a href='/create_account'>Sign Up</a></li>
   <% end %>
   </ul>
 </div>
