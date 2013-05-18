@@ -19,10 +19,9 @@ get '/create_account' do
 end
 
 post '/create_account' do
-  @user = User.new(params)
-  if @user.save
+  @user = User.create(params)
+  if @user.valid?
     session[:id]= @user.id
-    @user
     redirect '/my_profile'
   else 
     erb :login
@@ -30,7 +29,11 @@ post '/create_account' do
 end
 
 get '/my_profile' do
-   erb :profile
+  if session[:id]
+    erb :profile
+  else
+    redirect '/'
+  end
 end
 
 get '/logout' do
