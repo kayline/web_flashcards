@@ -3,7 +3,7 @@
   <h3>Question: <%=@active_card.question%></h3>
   
 
-  <form id='card_guess' action="/game/<%= @deck.id%>/<%=@round.id%>" method='post'>
+  <form id='card_guess' action="/game/<%=@round.id%>" method='post'>
     <input type='text' name='guess' placeholder="Guess Here">
     <input type="hidden" name="remaining_card_ids" value="<%=@remaining_card_ids%>">
     <input type="hidden" name="current_card_id" value="<%=@active_card.id%>">
