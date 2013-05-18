@@ -1,0 +1,25 @@
+.decks {
+margin-left: auto;
+margin-right: auto;
+border: 1px black solid;
+position: relative;
+background-color: white;
+border-radius:8px;
+width: 176px;
+}
+
+
+.decks h3{
+ text-align: center; 
+}
+
+.decks table{
+ margin-right: auto;
+ margin-bottom: 8px;
+}
+
+.decks table td,th{
+padding-left: 8px;
+text-align: left;
+padding-bottom: 8px;
+}

@@ -1,0 +1,30 @@
+.login {
+  margin: auto;
+  width: 610px;
+}
+
+input[type=email], input[type=password], input[type=text] {
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+input[value='Sign Up'] {
+  width: 910px;
+  border-top: 1px solid black;
+  padding-top: 20px;
+}
+
+input[value='Login'] {
+  width: 610px;
+  border-top: 1px solid black;
+  padding-top: 20px;
+}
+
+input {
+  font-size: 20px;
+  background: none;
+  outline: none;
+  border: none;
+  text-align: center;
+}
