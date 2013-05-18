@@ -4,9 +4,9 @@
   <p>You have played <%= current_user.rounds.count %> rounds (need to add average correct or some toher stat here) </p>
 
   <h5>History of Completed Rounds:</h5>
-      <% if current_user.rounds %>
+      <% if current_user.rounds.length > 1 %>
         <% current_user.rounds.each do |round| %>
-          <p> <%= round.deck.name%> (need to add % correct and % incorrect) </p>
+          <p> <%= Deck.find(round.deck_id).name%> (need to add % correct and % incorrect) </p>
         <% end %>
       <% else %>
         <p>You haven't played amy games!</p>

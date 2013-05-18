@@ -6,7 +6,7 @@ end
 
 
 40.times do
-  rand = 1 + rand(21)
+  rand = 1 + rand(2)
   Round.create(correct: rand, incorrect: rand, unanswered: rand, deck_id: rand, user_id: rand) 
 end
 
