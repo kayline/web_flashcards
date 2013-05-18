@@ -4,13 +4,21 @@
   <p>You have played <%= current_user.rounds.count %> rounds (need to add average correct or some toher stat here) </p>
 
   <h5>History of Completed Rounds:</h5>
-      <% if current_user.rounds.length > 1 %>
+      <% if current_user.rounds.length > 0 %>
         <% current_user.rounds.each do |round| %>
-          <p> <%= Deck.find(round.deck_id).name%> (need to add % correct and % incorrect) </p>
+          <% @deck = Deck.find(round.deck_id) %>
+          <% @percent_correct = round.correct / @deck.cards.length %>
+          <% @percent_incorrect = round.incorrect / @deck.cards.length %>
+          <% @percent_unanswered = round.unanswered / @deck.cards.length %>
+          <p><%= @deck.name%></p>
+          <ul> 
+            <li>Percent correct: <%= @percent_correct %></li>
+            <li>Percent incorrect: <%= @percent_incorrect %></li>
+            <li>Percent unanswered: <%= @percent_unanswered %></li>
         <% end %>
       <% else %>
         <p>You haven't played any games!</p>
-         link to decks
+         <a href="/game">Start a new game</a>
       <% end %>
 
 </div>
