@@ -1,11 +1,14 @@
 <div class='nav_bar'>
- <p>
   <a href='/' id="logo"><strong id='logo_red'>Flashy</strong>Flash</a>
   
+  <ul>
   <% if logged_in? %>
-    <a href='/game'>New Game</a>
-    <a href='/my_profile' id="active">Profile</a>
-    <a href='logs the user out'>Log Out</a>
+    <li><a href='/game'>New Game</a></li>
+    <li><a href='/my_profile' id="active">Profile</a></li>
+    <li><a href='/logout'>Log Out</a></li>
+  <% else %>
+    <li><a href='/login'>Login</a></li>
+    <li><a href='/create_account'>Sign Up</a></li>
   <% end %>
-</p>
+  </ul>
 </div>

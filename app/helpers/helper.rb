@@ -1,5 +1,5 @@
 helpers do
   def logged_in?
-    session[:user_id]
+    session[:id]
   end
 end

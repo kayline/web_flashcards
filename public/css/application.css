@@ -1,27 +1,39 @@
 body {
   background-image: url("../background.png");
 }
+
 .container {
-  margin: 20px auto;
-  width: 700px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  padding: 0;
+  margin: 0 auto;
+  width: 940px;
 }
+
 th {
   text-align: left;
 }
 
 .nav_bar {
-  margin: 0 auto;
   background-color: black;
   line-height: 4em;
+}
+
+.nav_bar {
+  margin: 0 auto;
+}
+
+.nav_bar ul {
+  margin: 0 auto;
+  margin-left: 75%;
+  width: 100%;
+}
+
+.nav_bar ul li {
+  display: inline;
 }
 
 .nav_bar a {
   text-decoration: none;
   color: white;
-  /*padding-left: 2em;
-  padding-right: 2em;*/
   text-align: center;
   display: inline-block;
   width: 150px;
@@ -49,6 +61,7 @@ th {
   font-size: 20pt;
   width: 250px;
   color: white;
+  float: left;
 }
 
 #logo_red {
