@@ -55,8 +55,10 @@ th {
 
 #logo {
   font-size: 20pt;
-  width: 250px;
+  width: 200px;
   float: left;
+  text-align: left;
+  padding-left: 50px;
 }
 
 #logo:hover {
