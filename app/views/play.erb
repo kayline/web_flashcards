@@ -1,9 +1,10 @@
 
 <div class='container'>
-  <h3>Question: <%=@active_card.question%></h3>
   
 
-  <form name='card_guess' id='card_guess' action="/game/<%=@round.id%>" method='post'>
+  <form class='guess' name='card_guess' id='card_guess' action="/game/<%=@round.id%>" method='post'>
+    <h3>Question: <%=@active_card.question%></h3>
+  
     <input type='text' name='guess' placeholder="Guess Here">
     <input type="hidden" name="remaining_card_ids" value="<%=@remaining_card_ids%>">
     <input type="hidden" name="current_card_id" value="<%=@active_card.id%>">
