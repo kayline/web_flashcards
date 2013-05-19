@@ -29,7 +29,7 @@ post '/create_account' do
 end
 
 get '/my_profile' do
-  if session[:id]
+  if current_user
     erb :profile
   else
     redirect '/'
@@ -38,13 +38,10 @@ end
 
 get '/logout' do
   session.clear
-
   redirect '/'
 end
 
 get '/:user_id/create_deck' do
-
-
 erb :create_deck
 end
 
