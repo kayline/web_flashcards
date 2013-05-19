@@ -21,20 +21,20 @@ post '/game/:round_id' do
   if params[:guess] == @answer
     new_count = @round.correct + 1
     @round.update_attributes(:correct => new_count)
+    @result = "Correct!"
   else
     new_count = @round.incorrect + 1
     @round.update_attributes(:incorrect => new_count)
+    @result = "Incorrect. The correct answer is #{@answer}"
   end
   if @remaining_card_ids.empty?
     {redirect: '/game/round_complete'}.to_json
   else
     @active_card = Card.find(@remaining_card_ids.pop)
     @remaining_card_ids = @remaining_card_ids.join(",")
-    results_hash = {active_question: @active_card.question, 
+    results_hash = {active_question: @active_card.question, result: @result,
       remaining_card_ids: @remaining_card_ids, active_id: @active_card.id}.to_json
-    
   end
-  
 end
 
 
