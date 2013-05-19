@@ -1,32 +1,33 @@
-
-<div>
-  <h4>Hello, <%= current_user.name %></h4>
-  <p>You have played <%= current_user.rounds.count %> rounds</p>
+<% if current_user.rounds.count > 0 %>
+<div class='profile'>
+  <h3>overall</h3>
   <% @total_correct = current_user.rounds.map {|round| round.correct}.inject(:+).to_f %>
   <% @total_incorrect = current_user.rounds.map {|round| round.incorrect}.inject(:+).to_f %>
   <% @total_answered = @total_correct + @total_incorrect %>
     <ul>
-      <li>Overall Percent Correct: <%= (@total_correct / @total_answered * 100).to_i %>%</li>
-      <li>Overall Percent Incorrect: <%= (@total_incorrect / @total_answered * 100).to_i %>%</li>
-    </ul>
+      <li>correct: <%= (@total_correct / @total_answered * 100).to_i %>%</li><!--
+      --><li>incorrect: <%= (@total_incorrect / @total_answered * 100).to_i %>%</li>
+    </ul>       
+</div>
+<% end %>
 
-  <h5>History of Completed Rounds:</h5>
+<div class='profile'>
       <% if current_user.rounds.length > 0 %>
+  <h3>history of <%= current_user.rounds.count %> completed round <%= current_user.rounds.count > 1 ? s : '' %></h3>
         <% current_user.rounds.each do |round| %>
           <% @deck = Deck.find(round.deck_id) %>
           <% @percent_correct = round.correct.to_f/ @deck.cards.length * 100%>
           <% @percent_incorrect = round.incorrect.to_f / @deck.cards.length * 100%>
           <% @percent_unanswered = round.unanswered.to_f / @deck.cards.length * 100%>
-          <p><%= @deck.name%>, Round <%= round.id %></p>
           <ul> 
-            <li>Percent correct: <%= @percent_correct.to_i %>%</li>
-            <li>Percent incorrect: <%= @percent_incorrect.to_i %>%</li>
-            <li>Percent unanswered: <%= @percent_unanswered.to_i %>%</li>
+            <li>round #<%= round.id %></li><!--
+            --><li><%= @deck.name%></li><!--
+            --><li>correct: <%= @percent_correct.to_i %>%</li><!--
+            --><li>incorrect: <%= @percent_incorrect.to_i %>%</li><!--
+            --><li>unanswered: <%= @percent_unanswered.to_i %>%</li>
           </ul>
         <% end %>
       <% else %>
-        <p>You haven't played any games!</p>
-         <a href="/game">Start a new game</a>
+        <p>You haven't played any games! Start a new one!</p>
       <% end %>
-
 </div>
