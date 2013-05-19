@@ -21,11 +21,14 @@ class User < ActiveRecord::Base
       if @user.password == password
         @user
       else
-        @errors = User.errors.full_messages 
+        @errors = User.errors.full_messages
       end
-   end
- end
+    end
+  end
 
+  def first_name
+    name.match(/\w+/)[0].capitalize
+  end
 
 end
 
