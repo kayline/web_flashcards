@@ -28,7 +28,7 @@ post '/game/:round_id' do
     @result = "Incorrect. The correct answer is #{@answer}"
   end
   if @remaining_card_ids.empty?
-    {redirect: '/game/round_complete'}.to_json
+    results_hash = {result: @result, redirect: '/game/round_complete'}.to_json
   else
     @active_card = Card.find(@remaining_card_ids.pop)
     @remaining_card_ids = @remaining_card_ids.join(",")
