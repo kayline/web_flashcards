@@ -1,3 +1,29 @@
-#login {
-  text-align: right;
+.profile {
+  margin-top: ;
+  margin-bottom: ;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  background: none;
+  font-size: 20px;
+}
+
+.profile li {
+  display: inline;
+  list-style: none;
+  line-height: 1.7;
+  padding: 0 20px 0 20px;
+}
+
+.profile ul {
+  display: inline;
+}
+
+.profile li + li {
+  border-left: 1px solid black;
+}
+
+.profile + .profile {
+  border-top: 1px solid black;
+  padding-top: 10px;
+  padding-bottom: 25px;
 }
