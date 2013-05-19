@@ -13,7 +13,7 @@
 
 <div class='profile'>
       <% if current_user.rounds.length > 0 %>
-  <h3>history of <%= current_user.rounds.count %> completed round <%= current_user.rounds.count > 1 ? s : '' %></h3>
+  <h3>history of <%= current_user.rounds.count %> completed round<%= current_user.rounds.count > 1 ? 's' : '' %></h3>
         <% current_user.rounds.each do |round| %>
           <% @deck = Deck.find(round.deck_id) %>
           <% @percent_correct = round.correct.to_f/ @deck.cards.length * 100%>
@@ -24,7 +24,7 @@
             --><li><%= @deck.name%></li><!--
             --><li>correct: <%= @percent_correct.to_i %>%</li><!--
             --><li>incorrect: <%= @percent_incorrect.to_i %>%</li><!--
-            --><li>unanswered: <%= @percent_unanswered.to_i %>%</li>
+            --><li>unanswered: <%= @percent_unanswered.to_i %>%</li> <br>
           </ul>
         <% end %>
       <% else %>
