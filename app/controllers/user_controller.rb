@@ -41,3 +41,23 @@ get '/logout' do
 
   redirect '/'
 end
+
+get '/:user_id/create_deck' do
+
+
+erb :create_deck
+end
+
+post '/:user_id/create_deck' do
+  @creator_id = params[:user_id]
+  @new_deck = Deck.create(:name => params[:deck_name], :topic => params[:topic], :creator_id => @creator_id)
+
+  erb :create_deck
+end
+
+post '/:user_id/create_card' do
+  @new_deck = Deck.find(params[:deck_id])
+  Card.create(:question => params[:question], :answer => params[:answer], :deck_id => params[:deck_id])
+
+  erb :create_deck
+end

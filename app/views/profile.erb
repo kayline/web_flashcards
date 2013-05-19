@@ -1,3 +1,7 @@
+<div class='profile'>
+  <h3><a href="/<%=session[:id]%>/create_deck">create a new deck</a></h3>     
+</div>
+
 <% if current_user.rounds.count > 0 %>
 <div class='profile'>
   <h3>overall</h3>
@@ -31,3 +35,4 @@
         <p>You haven't played any games! Start a new one!</p>
       <% end %>
 </div>
+

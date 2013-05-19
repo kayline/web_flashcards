@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('#card_guess, form').on('submit', function(e){
+  $('#card_guess').on('submit', function(e){
     e.preventDefault();
     $.ajax({
       type: 'post',

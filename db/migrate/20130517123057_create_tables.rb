@@ -8,7 +8,8 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :decks do |t|
       t.string :name, :null => false
-      t.string :topic 
+      t.string :topic
+      t.references :creator, :default => nil
 
       t.timestamps
     end
