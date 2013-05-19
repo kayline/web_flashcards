@@ -1,5 +1,5 @@
 <div class='profile'>
-  <h3><a href="/<%=session[:id]%>/create_deck">create a new deck</a></h3>     
+  <h3><a href="/<%=session[:id]%>/create_deck">create a new deck</a></h3>
 </div>
 
 <% if current_user.rounds.count > 0 %>
@@ -11,7 +11,7 @@
     <ul>
       <li>correct: <%= (@total_correct / @total_answered * 100).to_i %>%</li><!--
       --><li>incorrect: <%= (@total_incorrect / @total_answered * 100).to_i %>%</li>
-    </ul>       
+    </ul>
 </div>
 <% end %>
 
@@ -23,12 +23,12 @@
           <% @percent_correct = round.correct.to_f/ @deck.cards.length * 100%>
           <% @percent_incorrect = round.incorrect.to_f / @deck.cards.length * 100%>
           <% @percent_unanswered = round.unanswered.to_f / @deck.cards.length * 100%>
-          <ul> 
+          <ul>
             <li>round #<%= round.id %></li><!--
-            --><li><%= @deck.name%></li><!--
             --><li>correct: <%= @percent_correct.to_i %>%</li><!--
             --><li>incorrect: <%= @percent_incorrect.to_i %>%</li><!--
-            --><li>unanswered: <%= @percent_unanswered.to_i %>%</li> <br>
+            --><li>unanswered: <%= @percent_unanswered.to_i %>%</li><!--
+            --><li><%= @deck.name%></li><br>
           </ul>
         <% end %>
       <% else %>
