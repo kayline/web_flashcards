@@ -1,5 +1,9 @@
 get '/game' do
-  erb :new_game
+  if session[:id]
+    erb :new_game
+  else
+    redirect '/'
+  end
 end
 
 get '/game/round_complete' do
