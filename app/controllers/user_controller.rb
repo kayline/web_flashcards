@@ -48,8 +48,6 @@ end
 post '/:user_id/create_deck' do
   @creator_id = params[:user_id]
   @new_deck = Deck.create(:name => params[:deck_name], :topic => params[:topic], :creator_id => @creator_id)
-
-  erb :create_deck
 end
 
 post '/:user_id/create_card' do
