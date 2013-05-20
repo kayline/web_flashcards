@@ -50,13 +50,19 @@ post '/:user_id/create_deck' do
   @new_deck = Deck.create(:name => params[:deck_name], 
                           :topic => params[:topic], 
                           :creator_id => @creator_id)
-  {:deck_id => @new_deck.id}.to_json
+  {:deck_id => @new_deck.id, 
+   :user_id => params[:user_id], 
+   :deck_name => @new_deck.name}.to_json
 
 end
 
-post '/:user_id/create_card' do
+post '/:user_id/:deck_id/create_card' do
   @new_deck = Deck.find(params[:deck_id])
-  Card.create(:question => params[:question], :answer => params[:answer], :deck_id => params[:deck_id])
+  Card.create(:question => params[:question], 
+              :answer => params[:answer], 
+              :deck_id => params[:deck_id])
 
-  erb :create_deck
+  {:deck_id => @new_deck.id,
+   :user_id => params[:user_id]}.to_json
+
 end
