@@ -9,16 +9,12 @@
   </div>
 
   <div id='card_creation' class='create_deck_cards'>
-    <h3>Create your cards...IF YOU TRY TO DO THIS WITHOUT CREATING A DECK IT WILL BREAK</h3>
-    <% if @new_deck
-        @deck_id = @new_deck.id
-      else 
-        @deck_id = nil 
-      end%>
-    <form id='create_card' action="/<%= session[:id] %>/create_card" method='post'>
+    <h3>Create your cards</h3>
+    
+    <form name='create_card' id='create_card' action="/<%= session[:id] %>/create_card" method='post'>
       <input type='text' name='question' placeholder='Question' style='width: 300px' required>
       <input type='text' name='answer' placeholder='Answer' style='width: 300px' required>
-      <input type='hidden' name='deck_id' value="<%=@deck_id%>" >    
+      <input type='hidden' name='deck_id' value="" >    
       <input type='submit' value='Create Card'>
     </form>
   </div>

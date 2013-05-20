@@ -47,7 +47,11 @@ end
 
 post '/:user_id/create_deck' do
   @creator_id = params[:user_id]
-  @new_deck = Deck.create(:name => params[:deck_name], :topic => params[:topic], :creator_id => @creator_id)
+  @new_deck = Deck.create(:name => params[:deck_name], 
+                          :topic => params[:topic], 
+                          :creator_id => @creator_id)
+  {:deck_id => @new_deck.id}.to_json
+
 end
 
 post '/:user_id/create_card' do
