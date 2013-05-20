@@ -25,5 +25,3 @@ chromedriver.log
 bin/
 .env
 *.swp
-Rakefile
-config/database.rb
