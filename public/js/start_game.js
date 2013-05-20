@@ -12,7 +12,6 @@ $(document).ready(function(){
         function() 
         {
           if (data.redirect) {
-            // data.redirect contains the string URL to redirect to
             window.location.href = data.redirect;
           }
           else {
@@ -23,9 +22,8 @@ $(document).ready(function(){
             formElements["current_card_id"].value=data.active_id;
             formElements["guess"].value=""
           }
-        }, 5000);
+        }, 2000);
     });
   });
-
 });
 
