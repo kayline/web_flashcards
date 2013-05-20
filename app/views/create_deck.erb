@@ -11,10 +11,16 @@
   <div id='card_creation' class='create_deck_cards'>
     <h3>Create your cards</h3>
     
-    <form name='create_card' id='create_card' action="/<%= session[:id] %>/create_card" method='post'>
+    <form name='create_card' id='create_card' action="" method='post'>
       <input type='text' name='question' placeholder='Question' style='width: 300px' required>
-      <input type='text' name='answer' placeholder='Answer' style='width: 300px' required>
-      <input type='hidden' name='deck_id' value="" >    
+      <input type='text' name='answer' placeholder='Answer' style='width: 300px' required>   
       <input type='submit' value='Create Card'>
     </form>
   </div>
+
+  <div id='play_deck' class='play_deck'>
+    <form id='go_to_game' name='go_to_game' action="" method='get'>
+       <input type='submit' value='Play This Deck'>
+    </form>
+  </div>
+
